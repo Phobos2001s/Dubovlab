@@ -35,7 +35,7 @@ class Train(CsvDoc):
     models.append(('Наивный байесовский классификатор', GaussianNB()))
     models.append(('Метод опорных векторов', SVC(gamma='auto')))
 
-    def evaluate_models(self):
+    def testtrain(self):
         for name, model in self.models:
             Kfold = StratifiedKFold(n_splits=10, random_state=1, shuffle=True)
             cv_results = cross_val_score(model, self.X_train, self.Y_train, cv=Kfold, scoring='accuracy')
